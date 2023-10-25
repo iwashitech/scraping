@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDN版axiosとcheerioで簡易スクレイピング</title>
+</head>
+<body>
+  <script type="module">
+    import axios from 'https://cdn.jsdelivr.net/npm/axios@1.4.0/+esm';
+    import cheerio from 'https://cdn.jsdelivr.net/npm/cheerio@1.0.0-rc.12/+esm';
+
+    axios('https://ja.wikipedia.org/wiki/')
+      .then((response) => {
+          const html = response.data;
+          const $ = cheerio.load(html);
+
+          console.log($('img[class="mw-logo-icon"]').attr('src'));
+
+          const imgTag = `<img src="https://ja.wikipedia.org${$('img[class="mw-logo-icon"]').attr('src')}">`;
+          document.querySelector('#target').insertAdjacentHTML('beforebegin', imgTag);
+      }).catch((err) => console.error(err));
+  </script>
+
+  <div id="target"></div>
+</body>
+</html>
