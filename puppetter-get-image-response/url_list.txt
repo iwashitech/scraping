@@ -1,0 +1,3 @@
+https://www.example.jp/
+https://www.example.jp/foo/bar.html
+https://www.example.jp/baz?parameter=87539319

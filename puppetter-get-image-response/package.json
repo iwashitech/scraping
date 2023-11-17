@@ -1,0 +1,16 @@
+{
+  "name": "puppetter-get-image-response",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "img": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "fs": "^0.0.1-security",
+    "puppeteer": "^19.11.0"
+  }
+}
